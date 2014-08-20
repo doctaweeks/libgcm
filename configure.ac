@@ -1,0 +1,10 @@
+AC_INIT([libgcm], [1.0])
+AC_CONFIG_SRCDIR([src])
+
+AM_INIT_AUTOMAKE
+
+LT_INIT
+
+AC_PROG_CC_C99
+
+AC_OUTPUT([Makefile])
