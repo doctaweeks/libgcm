@@ -14,7 +14,7 @@ struct gcm {
 };
 
 struct regid {
-	const char id[4096];
+	char id[4096];
 };
 
 int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN]);
