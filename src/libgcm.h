@@ -5,6 +5,7 @@
 #include <json-c/json.h>
 
 #define GCM_KEY_LEN 40
+#define GCM_REGID_MAX 4096
 
 struct gcm {
 	char auth[GCM_KEY_LEN + 19];
@@ -14,7 +15,7 @@ struct gcm {
 };
 
 struct regid {
-	char id[4096];
+	char id[GCM_REGID_MAX];
 };
 
 int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN]);
