@@ -8,7 +8,7 @@
 #define GCM_REGID_MAX 4096
 
 struct gcm {
-	char auth[GCM_KEY_LEN + 19];
+	char auth[64];
 
 	CURL *curl;
 	struct curl_slist *headerlist;
