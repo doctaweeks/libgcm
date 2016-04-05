@@ -19,3 +19,4 @@ ltmain.sh
 missing
 src/libgcm.pc
 src/.dirstamp
+compile
