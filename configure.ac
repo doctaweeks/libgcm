@@ -8,4 +8,4 @@ LT_INIT
 
 AC_PROG_CC_C99
 
-AC_OUTPUT([Makefile])
+AC_OUTPUT([Makefile src/libgcm.pc])
