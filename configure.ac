@@ -1,4 +1,4 @@
-AC_INIT([libgcm], [1.0])
+AC_INIT([libgcm], [0.1.0])
 AC_CONFIG_SRCDIR([src])
 AC_CONFIG_MACRO_DIRS([m4])
 
