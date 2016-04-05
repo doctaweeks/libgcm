@@ -8,4 +8,7 @@ LT_INIT
 
 AC_PROG_CC_C99
 
+PKG_CHECK_MODULES([json_c], [json-c])
+PKG_CHECK_MODULES([libcurl], [libcurl])
+
 AC_OUTPUT([Makefile src/libgcm.pc])
