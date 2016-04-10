@@ -46,21 +46,14 @@ static struct json_object *_build_id_array(const struct regid regids[]) {
 	struct json_object *id_array = json_object_new_array();
 	const struct regid *id = regids;
 
-#if !DEBUG
 	while (id->id[0]) {
-		json_object_array_add(id_array, json_object_new_string(id->id));
-		id++;
-	}
-#else
-	unsigned int count=0;
-	while (id->id[0]) {
+#if DEBUG
 		printf("Adding %s\n", id->id);
+#endif
 		json_object_array_add(id_array, json_object_new_string(id->id));
-		count++;
 		id++;
 	}
-	printf("Added %u ids\n", count);
-#endif
+
 	return id_array;
 }
 
