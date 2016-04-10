@@ -1,6 +1,6 @@
-#include <string.h>
 #include "libgcm.h"
 
+#include <string.h>
 #if DEBUG
 #include <stdio.h>
 #endif
