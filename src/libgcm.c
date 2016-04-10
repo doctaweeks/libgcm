@@ -7,12 +7,6 @@
 
 #define GCM_URL "https://android.googleapis.com/gcm/send"
 
-static const char *gcm_type_internal[] = {
-	"deleted_messages",
-	"gcm",
-	"send_error"
-};
-
 int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN])
 {
 	if (!g)
