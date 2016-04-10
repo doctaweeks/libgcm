@@ -35,10 +35,8 @@ int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN])
 
 int libgcm_cleanup(struct gcm *g)
 {
-	curl_slist_free_all (g->headerlist);
-
+	curl_slist_free_all(g->headerlist);
 	curl_easy_cleanup(g->curl);
-
 	curl_global_cleanup();
 
 	return 0;
