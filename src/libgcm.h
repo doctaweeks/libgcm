@@ -4,11 +4,13 @@
 #include <curl/curl.h>
 #include <json-c/json.h>
 
-#define GCM_KEY_LEN 40
+#define GCM_KEY_LEN 4096
 #define GCM_REGID_MAX 4096
 
+#define GCM_KEY_PREFIX_LEN 19
+
 struct gcm {
-	char auth[64];
+	char auth[GCM_KEY_PREFIX_LEN + GCM_KEY_LEN];
 
 	CURL *curl;
 	struct curl_slist *headerlist;
