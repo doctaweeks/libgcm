@@ -71,13 +71,9 @@ int libgcm_send_json(struct gcm *g, struct json_object *j, const struct regid re
 	curl_easy_setopt(g->curl, CURLOPT_POSTFIELDS, body_str);
 	curl_easy_setopt(g->curl, CURLOPT_HTTPHEADER, g->headerlist);
 
-	CURLcode res = curl_easy_perform(g->curl);
+	g->last_result = curl_easy_perform(g->curl);
 
-	if(res != CURLE_OK) {
-#if DEBUG
-	fprintf(stderr, "POST failed: %s\n",
-		              curl_easy_strerror(res));
-#endif
+	if(g->last_result != CURLE_OK) {
 		ret = -1;
 	}
 
@@ -89,4 +85,9 @@ int libgcm_send_json(struct gcm *g, struct json_object *j, const struct regid re
 int libgcm_send_simple(struct gcm *g, const char *message, const struct regid regids[])
 {
 	return libgcm_send_json(g, json_object_new_string(message), regids);
+}
+
+const char *libgcm_get_last_strerror(struct gcm *g)
+{
+	return curl_easy_strerror(g->last_result);
 }

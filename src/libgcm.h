@@ -14,6 +14,8 @@ struct gcm {
 
 	CURL *curl;
 	struct curl_slist *headerlist;
+
+	CURLcode last_result;
 };
 
 struct regid {
@@ -25,5 +27,7 @@ int libgcm_cleanup(struct gcm *g);
 
 int libgcm_send_simple(struct gcm *g, const char *message, const struct regid regids[]);
 int libgcm_send_json(struct gcm *g, struct json_object *j, const struct regid regids[]);
+
+const char *libgcm_get_last_strerror(struct gcm *g);
 
 #endif
