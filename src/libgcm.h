@@ -1,5 +1,5 @@
-#ifndef _LIBGCM_H_
-#define _LIBGCM_H_
+#ifndef LIBGCM_H_
+#define LIBGCM_H_
 
 #include <curl/curl.h>
 #include <json-c/json.h>
