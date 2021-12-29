@@ -18,6 +18,9 @@ int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN])
 	curl_easy_setopt(g->curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V6);
 	curl_easy_setopt(g->curl, CURLOPT_URL, GCM_URL);
 
+	curl_easy_setopt(g->curl, CURLOPT_CONNECTTIMEOUT_MS, 500);
+	curl_easy_setopt(g->curl, CURLOPT_TIMEOUT_MS, 1500);
+
 	snprintf(g->auth, GCM_KEY_PREFIX_LEN + GCM_KEY_LEN, "Authorization:key=%s", sender);
 
 	g->headerlist = NULL;
