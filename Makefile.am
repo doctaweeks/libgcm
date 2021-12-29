@@ -11,3 +11,4 @@ lib_LTLIBRARIES=libgcm.la
 libgcm_la_SOURCES=src/libgcm.c
 libgcm_la_CPPFLAGS=$(json_c_CFLAGS) $(libcurl_CFLAGS)
 libgcm_la_LIBADD=$(json_c__LIBS) $(libcurl_LIBS)
+libgcm_la_LDFLAGS=-version-info 0:0:0
