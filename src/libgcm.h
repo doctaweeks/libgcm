@@ -19,7 +19,7 @@ struct gcm {
 };
 
 struct regid {
-	char id[GCM_REGID_MAX];
+	char id[GCM_REGID_MAX+1];
 };
 
 int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN]);
