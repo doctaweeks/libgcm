@@ -5,7 +5,7 @@
 #include <stdio.h>
 #endif
 
-#define GCM_URL "https://android.googleapis.com/gcm/send"
+#define GCM_URL "https://fcm.googleapis.com/fcm/send"
 
 int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN])
 {
