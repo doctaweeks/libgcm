@@ -16,6 +16,7 @@ struct gcm {
 	struct curl_slist *headerlist;
 
 	CURLcode last_result;
+	long last_http_code;
 };
 
 struct regid {

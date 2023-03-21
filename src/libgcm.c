@@ -76,6 +76,7 @@ int libgcm_send_json(struct gcm *g, struct json_object *j, const struct regid re
 	curl_easy_setopt(g->curl, CURLOPT_HTTPHEADER, g->headerlist);
 
 	g->last_result = curl_easy_perform(g->curl);
+	curl_easy_getinfo(g->curl, CURLINFO_RESPONSE_CODE, &g->last_http_code);
 
 	if(g->last_result != CURLE_OK) {
 		ret = -1;
