@@ -7,6 +7,11 @@
 
 #define GCM_URL "https://fcm.googleapis.com/fcm/send"
 
+static size_t write_cb(void *data, size_t size, size_t nmemb, void *userdata)
+{
+	return size * nmemb;
+}
+
 int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN])
 {
 	if (!g)
@@ -21,6 +26,8 @@ int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN])
 
 	curl_easy_setopt(g->curl, CURLOPT_CONNECTTIMEOUT_MS, 500);
 	curl_easy_setopt(g->curl, CURLOPT_TIMEOUT_MS, 1500);
+
+	curl_easy_setopt(g->curl, CURLOPT_WRITEFUNCTION, write_cb);
 
 	snprintf(g->auth, GCM_KEY_PREFIX_LEN + GCM_KEY_LEN, "Authorization:key=%s", sender);
 
