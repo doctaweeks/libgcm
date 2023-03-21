@@ -66,7 +66,6 @@ int libgcm_send_json(struct gcm *g, struct json_object *j, const struct regid re
 	json_object_object_add(body, "data", j);
 
 	//json_object_object_add(body, "collapse_key", j);
-	json_object_object_add(body, "delay_while_idle", json_object_new_boolean(0));
 	json_object_object_add(body, "time_to_live", json_object_new_int(43200));
 	//json_object_object_add(body, "dry_run", json_object_new_boolean(1));
 
