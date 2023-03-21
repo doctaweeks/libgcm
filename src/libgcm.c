@@ -7,6 +7,14 @@
 
 #define GCM_URL "https://fcm.googleapis.com/fcm/send"
 
+#ifndef GCM_CONNECTTIMEOUT_MS
+#define GCM_CONNECTTIMEOUT_MS 500
+#endif
+
+#ifndef GCM_TIMEOUT_MS
+#define GCM_TIMEOUT_MS 1500
+#endif
+
 static size_t write_cb(void *data, size_t size, size_t nmemb, void *userdata)
 {
 	return size * nmemb;
@@ -24,8 +32,8 @@ int libgcm_init(struct gcm *g, const char sender[GCM_KEY_LEN])
 	curl_easy_setopt(g->curl, CURLOPT_URL, GCM_URL);
 	curl_easy_setopt(g->curl, CURLOPT_FAILONERROR, 1);
 
-	curl_easy_setopt(g->curl, CURLOPT_CONNECTTIMEOUT_MS, 500);
-	curl_easy_setopt(g->curl, CURLOPT_TIMEOUT_MS, 1500);
+	curl_easy_setopt(g->curl, CURLOPT_CONNECTTIMEOUT_MS, GCM_CONNECTTIMEOUT_MS);
+	curl_easy_setopt(g->curl, CURLOPT_TIMEOUT_MS, GCM_TIMEOUT_MS);
 
 	curl_easy_setopt(g->curl, CURLOPT_WRITEFUNCTION, write_cb);
 
